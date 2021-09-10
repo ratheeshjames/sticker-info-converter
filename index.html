@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Responsive -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,
+                 initial-scale=1">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
+    <title>Converter</title>
+    <!-- Meta Tags required for
+     Progressive Web App -->
+    <meta name=
+                  "apple-mobile-web-app-status-bar"
+          content="#aa7700">
+    <meta name="theme-color"
+          content="dodgerblue">
+    <!-- Manifest File link -->
+    <link rel="manifest"
+          href="manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+
+<body>
+<nav class="navbar navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Convertor</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <p class="col-sm-12" style="margin-top: 10px">Select info.json file</p>
+    </div>
+    <div class="row">
+        <div class="input-group col-sm-10">
+            <input type="file" class="form-control" id="info_file" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+        </div>
+    </div>
+    <div class="row">
+        <form>
+            <div class="mb-3" style="margin-top: 3vh">
+                <label for="identifier" class="form-label">Enter Identifier Number: </label>
+                <input type="number" class="form-control" id="identifier" aria-describedby="name">
+            </div>
+            <div class="mb-3" style="margin-top: 3vh">
+                <label for="name" class="form-label">Enter Sticker Pack name: </label>
+                <input type="text" class="form-control" id="name" aria-describedby="name">
+            </div>
+            <div class="mb-3" style="margin-top: 3vh">
+                <label for="pub_name" class="form-label">Enter Publisher name: </label>
+                <input type="text" class="form-control" id="pub_name" aria-describedby="name">
+            </div>
+            <div class="mb-3" style="margin-top: 3vh">
+                <label for="tray_name" class="form-label">Enter Tray Image file name: </label>
+                <input type="text" class="form-control" id="tray_name" aria-describedby="name">
+            </div>
+            <button class="btn btn-primary" type="button" id="btn_convert">Convert</button>
+            <button class="btn btn-outline-success" type="button" id="download">Download</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+<script src="js/workscript.min.js"></script>
+<script>
+    window.addEventListener('load', () => {
+        registerSW();
+    });
+
+    // Register the Service Worker
+    async function registerSW() {
+        if ('serviceWorker' in navigator) {
+            try {
+                await navigator
+                    .serviceWorker
+                    .register('serviceworker.js');
+            }
+            catch (e) {
+                console.log('SW registration failed');
+            }
+        }
+    }
+</script>
+</html>

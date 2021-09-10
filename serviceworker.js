@@ -3,12 +3,7 @@ var staticCacheName = "pwa";
 self.addEventListener("install", function (e) {
     e.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
-            return cache.addAll([
-                'index.html',
-                '/images/icon-192x192.png',
-                '/images/icon-512x512.png',
-                '/js/workscript.min.js'
-            ]);
+            return cache.addAll(["/"]);
         })
     );
 });
